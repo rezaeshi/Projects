@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لرن تاک</title>
+<meta name="description" content="لرن تاک | کلاس آنلاین زبان انگلیسی و آلمانی در گروه‌های کوچک، از سال ۱۳۹۷">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --paper:#F3F5F0;
+  --surface:#FFFFFF;
+  --ink:#132322;
+  --ink-soft:#4A5E5B;
+  --line:#D6DFDA;
+  --petrol:#0F4A4B;
+  --petrol-ink:#FFFFFF;
+  --saffron:#F4B41A;
+  --saffron-ink:#1E1A0C;
+  --brick:#C8483A;
+  --bubble-them:#E3ECE8;
+  --bubble-me:#0F4A4B;
+  --bubble-me-ink:#F3F5F0;
+  --shadow:0 1px 0 rgba(15,74,75,.06),0 12px 32px -18px rgba(15,74,75,.35);
+  --radius:18px;
+  --f-display:"Lalezar","Vazirmatn",Tahoma,sans-serif;
+  --f-body:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;
+  --f-latin:"Instrument Serif",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0B1817;--surface:#122423;--ink:#E7EEEA;--ink-soft:#A3B6B1;--line:#23403D;
+    --petrol:#7CC6BF;--petrol-ink:#0B1817;--bubble-them:#1B3432;--bubble-me:#7CC6BF;--bubble-me-ink:#0B1817;
+    --brick:#EE7A6C;--shadow:0 12px 32px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0B1817;--surface:#122423;--ink:#E7EEEA;--ink-soft:#A3B6B1;--line:#23403D;
+  --petrol:#7CC6BF;--petrol-ink:#0B1817;--bubble-them:#1B3432;--bubble-me:#7CC6BF;--bubble-me-ink:#0B1817;
+  --brick:#EE7A6C;--shadow:0 12px 32px -18px rgba(0,0,0,.7);
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85}
+.lt{direction:rtl;padding-inline:16px;padding-bottom:88px}
+.wrap{max-width:1120px;margin-inline:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.3;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,40px)}
+h3{font-size:22px}
+p{margin:0}
+.muted{color:var(--ink-soft)}
+.latin{font-family:var(--f-latin);direction:ltr;unicode-bidi:isolate}
+.eyebrow{font-size:13px;font-weight:700;color:var(--petrol);letter-spacing:.02em}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:6px}
+section{padding-block:72px}
+.sec-head{display:grid;gap:8px;max-width:620px;margin-bottom:32px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 15px/1 var(--f-body);padding:14px 22px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;transition:transform .15s ease, background-color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--saffron);color:var(--saffron-ink)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--petrol)}
+
+/* ---------- Header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-inline:-16px;padding-inline:16px}
+.top .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo b{font-family:var(--f-display);font-weight:400;font-size:26px;color:var(--ink)}
+.logo svg{width:34px;height:34px;flex:none}
+.nav{display:flex;gap:22px;margin-inline-start:12px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-soft)}
+.nav a:hover{color:var(--ink)}
+.top .btn{margin-inline-start:auto;padding:11px 18px;font-size:14px}
+@media (max-width:860px){.nav{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:56px 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(44px,7.4vw,88px);line-height:1.15}
+.hero h1 mark{background:none;color:var(--ink);position:relative;white-space:nowrap;isolation:isolate}
+.hero h1 mark::after{content:"";position:absolute;inset-inline:-4px;bottom:.12em;height:.28em;background:var(--saffron);z-index:-1;border-radius:4px}
+.hero h1 span{position:relative;z-index:0}
+.hero-lead{font-size:18px;color:var(--ink-soft);max-width:34em;margin-top:18px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;font-size:14px;color:var(--ink-soft)}
+.hero-facts li{display:flex;align-items:center;gap:8px}
+.hero-facts li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--petrol)}
+.hero-facts{list-style:none;padding:0}
+
+/* chat window */
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:18px;display:grid;gap:14px}
+.chat-bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.live{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--brick);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3}}
+.tabs{display:inline-flex;background:var(--paper);border-radius:999px;padding:4px;gap:4px}
+.tabs button{font:600 13px/1 var(--f-body);border:0;background:transparent;color:var(--ink-soft);padding:8px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--petrol);color:var(--petrol-ink)}
+.msgs{display:grid;gap:12px;min-height:300px;align-content:start}
+.msg{display:grid;gap:4px;max-width:86%}
+.msg .who{font-size:12px;color:var(--ink-soft)}
+.msg .b{font-family:var(--f-latin);font-size:22px;line-height:1.35;direction:ltr;text-align:left;padding:12px 16px;border-radius:20px}
+.msg .fa{font-size:13px;color:var(--ink-soft)}
+.msg.them{justify-self:start}
+.msg.them .b{background:var(--bubble-them);border-start-start-radius:6px}
+.msg.me{justify-self:end;text-align:left}
+.msg.me .who,.msg.me .fa{text-align:end}
+.msg.me .b{background:var(--bubble-me);color:var(--bubble-me-ink);border-start-end-radius:6px}
+.msg{animation:rise .5s both}
+.msg:nth-child(2){animation-delay:.5s}
+.msg:nth-child(3){animation-delay:1s}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.chat-foot{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:12px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* ---------- Languages ---------- */
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lang{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:grid;gap:18px;text-decoration:none;transition:border-color .2s}
+.lang:hover{border-color:var(--petrol)}
+.lang-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.lang-top .latin{font-size:30px;color:var(--ink-soft);font-style:italic}
+.goals{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.goals li{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--paper)}
+.cefr{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;direction:ltr}
+.cefr span{font:600 12px/1 var(--f-body);text-align:center;padding:10px 0;border-radius:8px;background:var(--paper);color:var(--ink-soft)}
+.cefr span.on{background:var(--petrol);color:var(--petrol-ink)}
+.lang .go{font-weight:700;color:var(--petrol)}
+@media (max-width:760px){.langs{grid-template-columns:1fr}}
+
+/* ---------- Steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s;border-top:2px solid var(--ink)}
+.step{padding:24px 0 0;padding-inline-end:28px;display:grid;gap:8px;counter-increment:s}
+.step::before{content:counter(s,persian);font-family:var(--f-display);font-size:48px;line-height:1;color:var(--saffron)}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:24px}}
+
+/* ---------- Quiz ---------- */
+.quiz-band{background:var(--petrol);color:var(--petrol-ink);border-radius:32px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.quiz-band .eyebrow{color:var(--saffron)}
+.quiz-band .muted{color:inherit;opacity:.8}
+.quiz{background:var(--surface);color:var(--ink);border-radius:22px;padding:24px;display:grid;gap:16px}
+.q-meta{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft)}
+.q-text{font-family:var(--f-latin);font-size:26px;line-height:1.35;direction:ltr;text-align:left}
+.q-opts{display:grid;gap:8px}
+.q-opts button{font:500 18px/1.3 var(--f-latin);direction:ltr;text-align:left;padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.q-opts button:hover{border-color:var(--petrol)}
+.q-opts button.ok{border-color:var(--petrol);background:color-mix(in srgb,var(--petrol) 12%,transparent)}
+.q-opts button.no{border-color:var(--brick);background:color-mix(in srgb,var(--brick) 10%,transparent)}
+.q-bar{height:6px;background:var(--paper);border-radius:6px;overflow:hidden}
+.q-bar i{display:block;height:100%;background:var(--saffron);transition:width .3s}
+.q-result{display:grid;gap:12px}
+.q-result strong{font-family:var(--f-display);font-weight:400;font-size:40px;color:var(--petrol)}
+@media (max-width:900px){.quiz-band{grid-template-columns:1fr}}
+
+/* ---------- Proof ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat{display:grid;gap:4px;border-inline-start:2px solid var(--saffron);padding-inline-start:16px}
+.stat b{font-family:var(--f-display);font-weight:400;font-size:40px;line-height:1.1}
+.stat span{font-size:14px;color:var(--ink-soft)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:14px;align-content:start}
+.quote p{font-size:15px}
+.quote footer{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft)}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--bubble-them);display:grid;place-items:center;font-weight:700;color:var(--petrol);flex:none}
+.sample{font-size:11px;font-weight:700;color:var(--brick);border:1px solid currentColor;border-radius:6px;padding:1px 6px;justify-self:start}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr}.quotes{grid-template-columns:1fr}}
+
+/* ---------- Plans ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:grid;gap:16px}
+.plan.featured{border:2px solid var(--petrol)}
+.plan .price{font-family:var(--f-display);font-size:30px}
+.plan .price small{font-family:var(--f-body);font-size:14px;color:var(--ink-soft)}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.plan li{display:flex;gap:8px}
+.plan li::before{content:"✓";color:var(--petrol);font-weight:800}
+@media (max-width:860px){.plans{grid-template-columns:1fr}}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:0;border-top:1px solid var(--line);max-width:780px}
+.faq details{border-bottom:1px solid var(--line);padding-block:18px}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--petrol)}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:10px;color:var(--ink-soft)}
+
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--line);padding-block:48px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;font-size:14px}
+.foot h4{margin:0 0 10px;font-size:14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:var(--ink-soft)}
+.foot a{text-decoration:none}
+.ltr{direction:ltr;unicode-bidi:isolate}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+
+/* ---------- Mobile bar ---------- */
+.mbar{position:fixed;inset-inline:0;bottom:0;z-index:30;display:none;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
+.mbar .btn{flex:1}
+@media (max-width:760px){.mbar{display:flex}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="lt" dir="rtl" lang="fa">
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="لرن تاک، صفحه اصلی">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M6 4h16a8 8 0 0 1 8 8v4a8 8 0 0 1-8 8h-7l-7 6v-6.3A8 8 0 0 1 2 16v-4a8 8 0 0 1 4-8z" fill="var(--petrol)"/><circle cx="11" cy="14" r="2" fill="var(--saffron)"/><circle cx="17" cy="14" r="2" fill="var(--saffron)"/><circle cx="23" cy="14" r="2" fill="var(--saffron)"/></svg>
+      <b>لرن‌تاک</b>
+    </a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#langs">انگلیسی</a>
+      <a href="#langs">آلمانی</a>
+      <a href="#plans">آیلتس</a>
+      <a href="#quiz">تعیین سطح</a>
+      <a href="#faq">سؤالات</a>
+    </nav>
+    <a class="btn btn-primary" href="#quiz">تعیین سطح رایگان</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">کلاس آنلاین انگلیسی و آلمانی · گروه‌های ۴ تا ۶ نفره</p>
+        <h1>از جلسه اول، <mark><span>حرف بزن.</span></mark></h1>
+        <p class="hero-lead">در لرن‌تاک بیشتر وقت کلاس مال شماست، نه استاد. گروه کوچک، تمرین مکالمه در هر جلسه، و مسیر مشخص تا آیلتس، گوته یا مهاجرت.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#quiz">سطحم را بسنج · رایگان</a>
+          <a class="btn btn-ghost" href="#contact">مشاوره تلفنی</a>
+        </div>
+        <ul class="hero-facts">
+          <li>فعال از ۱۳۹۷</li>
+          <li>کلاس آزمایشی قبل از ثبت‌نام</li>
+          <li>آنلاین و حضوری در تهران</li>
+        </ul>
+      </div>
+
+      <div class="chat" aria-label="نمونه‌ای از یک کلاس">
+        <div class="chat-bar">
+          <span class="live"><i></i>کلاس مکالمه · سطح B1</span>
+          <div class="tabs" role="tablist" aria-label="زبان">
+            <button id="tab-en" role="tab" aria-selected="true" data-lang="en">English</button>
+            <button id="tab-de" role="tab" aria-selected="false" data-lang="de">Deutsch</button>
+          </div>
+        </div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="chat-foot"><span>۴ زبان‌آموز · ۱ استاد</span><span>۷۵٪ زمان کلاس = صحبت شما</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="langs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">دو زبان، یک روش</p>
+        <h2>کدام زبان را می‌خواهید صحبت کنید؟</h2>
+      </div>
+      <div class="langs">
+        <a class="lang" href="#quiz">
+          <div class="lang-top"><h3>زبان انگلیسی</h3><span class="latin">English</span></div>
+          <p class="muted">مکالمه روزمره و کاری، آمادگی آیلتس آکادمیک و جنرال، کلاس خصوصی.</p>
+          <ul class="goals"><li>مکالمه</li><li>آیلتس (IELTS)</li><li>انگلیسی کاری</li></ul>
+          <div class="cefr" aria-label="سطوح A1 تا C1"><span class="on">A1</span><span class="on">A2</span><span class="on">B1</span><span class="on">B2</span><span class="on">C1</span><span>C2</span></div>
+          <span class="go">دیدن دوره‌های انگلیسی ←</span>
+        </a>
+        <a class="lang" href="#quiz">
+          <div class="lang-top"><h3>زبان آلمانی</h3><span class="latin">Deutsch</span></div>
+          <p class="muted">از صفر تا B2 برای مهاجرت، تحصیل و کار، با آمادگی آزمون‌های رسمی.</p>
+          <ul class="goals"><li>گوته (Goethe)</li><li>ÖSD / telc</li><li>مهاجرت کاری</li></ul>
+          <div class="cefr" aria-label="سطوح A1 تا B2"><span class="on">A1</span><span class="on">A2</span><span class="on">B1</span><span class="on">B2</span><span>C1</span><span>C2</span></div>
+          <span class="go">دیدن دوره‌های آلمانی ←</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">شروع در سه قدم</p>
+        <h2>قبل از پرداخت، کلاس را امتحان کنید</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>تعیین سطح</h3><p class="muted">آزمون ۱۰ دقیقه‌ای آنلاین، یا گفتگوی کوتاه تلفنی با مشاور.</p></div>
+        <div class="step"><h3>کلاس آزمایشی</h3><p class="muted">یک جلسه در کلاس هم‌سطح خودتان بنشینید و استاد را بشناسید.</p></div>
+        <div class="step"><h3>ثبت‌نام در ترم</h3><p class="muted">اگر راضی بودید، ترم را شروع کنید. برنامه و شهریه از اول مشخص است.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="wrap">
+      <div class="quiz-band">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">تعیین سطح سریع</p>
+          <h2>سه سؤال، یک تخمین اولیه</h2>
+          <p class="muted">این نسخه کوتاه است. آزمون کامل ۳۰ سؤال دارد و نتیجه دقیق‌تر با پیشنهاد کلاس می‌دهد.</p>
+        </div>
+        <div class="quiz" id="quizBox">
+          <div class="q-meta"><span id="qStep">سؤال ۱ از ۳</span><span>انگلیسی</span></div>
+          <div class="q-bar"><i id="qBar" style="width:33%"></i></div>
+          <p class="q-text" id="qText"></p>
+          <div class="q-opts" id="qOpts"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b>۱۳۹۷</b><span>سال شروع لرن‌تاک</span></div>
+        <div class="stat"><b>۲</b><span>زبان: انگلیسی و آلمانی</span></div>
+        <div class="stat"><b>۴–۶</b><span>نفر در هر کلاس گروهی</span></div>
+        <div class="stat"><b>A1–C1</b><span>سطوح قابل ارائه</span></div>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote"><span class="sample">نمونه متن</span><p>«بعد از دو ترم، اولین مصاحبه کاری‌ام را به آلمانی دادم. بیشترین کمک، تمرین مکالمه هر جلسه بود.»</p><footer><span class="avatar">م</span>زبان‌آموز آلمانی · B1</footer></blockquote>
+        <blockquote class="quote"><span class="sample">نمونه متن</span><p>«اسپیکینگ آیلتس نقطه ضعفم بود. تمرین‌های تایم‌دار و فیدبک دقیق استاد نمره‌ام را بالا برد.»</p><footer><span class="avatar">س</span>آمادگی آیلتس</footer></blockquote>
+        <blockquote class="quote"><span class="sample">نمونه متن</span><p>«کلاس کوچک بود و خجالت نمی‌کشیدم اشتباه کنم. همین باعث شد بالاخره راه بیفتم.»</p><footer><span class="avatar">ر</span>زبان‌آموز انگلیسی · A2</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">نوع کلاس و شهریه</p>
+        <h2>شهریه شفاف، بدون هزینه پنهان</h2>
+        <p class="muted"><span class="sample">قیمت نمونه</span> مبالغ را با شهریه واقعی جایگزین کنید.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>گروهی آنلاین</h3>
+          <p class="price">۲٬۴۰۰٬۰۰۰ <small>تومان / ترم</small></p>
+          <ul><li>۴ تا ۶ نفر هم‌سطح</li><li>۱۶ جلسه ۹۰ دقیقه‌ای</li><li>ضبط جلسات</li></ul>
+          <a class="btn btn-ghost" href="#quiz">رزرو کلاس آزمایشی</a>
+        </div>
+        <div class="plan featured">
+          <h3>آمادگی آیلتس</h3>
+          <p class="price">۴٬۸۰۰٬۰۰۰ <small>تومان / دوره</small></p>
+          <ul><li>تمرکز روی رایتینگ و اسپیکینگ</li><li>ماک تست تایم‌دار</li><li>تصحیح رایتینگ هر هفته</li></ul>
+          <a class="btn btn-primary" href="#quiz">رزرو کلاس آزمایشی</a>
+        </div>
+        <div class="plan">
+          <h3>خصوصی</h3>
+          <p class="price">۶۵۰٬۰۰۰ <small>تومان / جلسه</small></p>
+          <ul><li>زمان‌بندی دلخواه</li><li>برنامه اختصاصی</li><li>آنلاین یا حضوری</li></ul>
+          <a class="btn btn-ghost" href="#contact">مشاوره</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">سؤالات متداول</p><h2>قبل از ثبت‌نام</h2></div>
+      <div class="faq">
+        <details open><summary>تعیین سطح واقعاً رایگان است؟</summary><p>بله. آزمون آنلاین و مشاوره تلفنی هر دو رایگان‌اند و تعهدی برای ثبت‌نام ندارند.</p></details>
+        <details><summary>کلاس‌های آنلاین روی چه پلتفرمی برگزار می‌شوند؟</summary><p>کلاس‌ها روی پلتفرم آموزشی لرن‌تاک برگزار می‌شوند و لینک هر جلسه قبل از شروع برایتان پیامک می‌شود.</p></details>
+        <details><summary>اگر جلسه‌ای را از دست بدهم چه می‌شود؟</summary><p>فایل ضبط‌شده جلسه تا پایان ترم در پنل شما در دسترس است.</p></details>
+        <details><summary>کلاس حضوری هم دارید؟</summary><p>بله، در شعبه مجیدیه شمالی تهران. برای برنامه کلاس‌های حضوری با مشاور تماس بگیرید.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot" id="contact">
+  <div>
+    <a class="logo" href="#top"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M6 4h16a8 8 0 0 1 8 8v4a8 8 0 0 1-8 8h-7l-7 6v-6.3A8 8 0 0 1 2 16v-4a8 8 0 0 1 4-8z" fill="var(--petrol)"/><circle cx="11" cy="14" r="2" fill="var(--saffron)"/><circle cx="17" cy="14" r="2" fill="var(--saffron)"/><circle cx="23" cy="14" r="2" fill="var(--saffron)"/></svg><b>لرن‌تاک</b></a>
+    <p class="muted" style="margin-top:10px;max-width:32em">آموزشگاه آنلاین زبان انگلیسی و آلمانی. تهران، مجیدیه شمالی، کوچه اردستانی.</p>
+  </div>
+  <div>
+    <h4>تماس</h4>
+    <ul><li class="ltr">021-28421400</li><li class="ltr">0905-829-1370</li><li class="ltr">info@learntalk.ir</li></ul>
+  </div>
+  <div>
+    <h4>لینک‌ها</h4>
+    <ul><li><a href="#langs">دوره انگلیسی</a></li><li><a href="#langs">دوره آلمانی</a></li><li><a href="#quiz">تعیین سطح رایگان</a></li><li><a href="#faq">سؤالات متداول</a></li></ul>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-primary" href="#quiz">تعیین سطح رایگان</a>
+  <a class="btn btn-ghost" href="#contact">تماس</a>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var convo = {
+    en:[
+      {me:false,who:"استاد",t:"So, what did you do this weekend?",fa:"خب، آخر هفته چه کار کردی؟"},
+      {me:true,who:"شما",t:"I went hiking in Darband with my friends!",fa:"با دوستانم رفتم دربند کوه‌پیمایی!"},
+      {me:false,who:"استاد",t:"Nice! Was it crowded?",fa:"عالی! شلوغ بود؟"}
+    ],
+    de:[
+      {me:false,who:"استاد",t:"Und, was hast du am Wochenende gemacht?",fa:"خب، آخر هفته چه کار کردی؟"},
+      {me:true,who:"شما",t:"Ich war mit Freunden in Darband wandern!",fa:"با دوستانم رفتم دربند کوه‌پیمایی!"},
+      {me:false,who:"استاد",t:"Schön! War es voll?",fa:"عالی! شلوغ بود؟"}
+    ]
+  };
+  var box = document.getElementById("msgs");
+  function render(lang){
+    box.innerHTML = "";
+    convo[lang].forEach(function(m){
+      var d = document.createElement("div");
+      d.className = "msg " + (m.me ? "me" : "them");
+      d.innerHTML = '<span class="who"></span><span class="b"></span><span class="fa"></span>';
+      d.children[0].textContent = m.who;
+      d.children[1].textContent = m.t;
+      d.children[1].lang = lang;
+      d.children[2].textContent = m.fa;
+      box.appendChild(d);
+    });
+  }
+  document.querySelectorAll(".tabs button").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll(".tabs button").forEach(function(x){ x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      render(b.dataset.lang);
+    });
+  });
+  render("en");
+
+  var qs = [
+    {q:"She ___ to work by bus every day.", o:["go","goes","going"], a:1},
+    {q:"If I ___ more time, I would learn German too.", o:["have","had","would have"], a:1},
+    {q:"By the time we arrived, the class ___.", o:["started","has started","had already started"], a:2}
+  ];
+  var levels = [
+    {l:"A1", c:"کلاس انگلیسی از پایه"},
+    {l:"A2", c:"کلاس گروهی A2"},
+    {l:"B1", c:"کلاس مکالمه B1"},
+    {l:"B2+", c:"کلاس B2 یا آمادگی آیلتس"}
+  ];
+  var i = 0, score = 0;
+  var qText = document.getElementById("qText"), qOpts = document.getElementById("qOpts"),
+      qStep = document.getElementById("qStep"), qBar = document.getElementById("qBar"),
+      quizBox = document.getElementById("quizBox");
+  var digits = "۰۱۲۳۴۵۶۷۸۹";
+  function fa(n){ return String(n).replace(/\d/g, function(d){ return digits[d]; }); }
+  function show(){
+    var q = qs[i];
+    qStep.textContent = "سؤال " + fa(i + 1) + " از " + fa(qs.length);
+    qBar.style.width = ((i + 1) / qs.length * 100) + "%";
+    qText.textContent = q.q;
+    qOpts.innerHTML = "";
+    q.o.forEach(function(o, k){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = o;
+      b.addEventListener("click", function(){
+        var right = k === q.a;
+        if (right) score++;
+        b.classList.add(right ? "ok" : "no");
+        qOpts.children[q.a].classList.add("ok");
+        qOpts.querySelectorAll("button").forEach(function(x){ x.disabled = true; });
+        setTimeout(function(){ i++; i < qs.length ? show() : done(); }, 700);
+      });
+      qOpts.appendChild(b);
+    });
+  }
+  function done(){
+    var lv = levels[score];
+    quizBox.innerHTML =
+      '<div class="q-result"><span class="q-meta">تخمین اولیه سطح شما</span>' +
+      '<strong class="latin"></strong>' +
+      '<p>پیشنهاد ما: <b></b>. برای نتیجه دقیق، آزمون کامل را بدهید یا با مشاور صحبت کنید.</p>' +
+      '<div class="hero-cta" style="margin:0"><a class="btn btn-primary" href="#contact">رزرو کلاس آزمایشی</a>' +
+      '<button class="btn btn-ghost" type="button" id="qAgain">دوباره</button></div></div>';
+    quizBox.querySelector("strong").textContent = lv.l;
+    quizBox.querySelector("p b").textContent = lv.c;
+    document.getElementById("qAgain").addEventListener("click", reset);
+  }
+  function reset(){
+    i = 0; score = 0;
+    quizBox.innerHTML = '<div class="q-meta"><span id="qStep"></span><span>انگلیسی</span></div><div class="q-bar"><i id="qBar"></i></div><p class="q-text" id="qText"></p><div class="q-opts" id="qOpts"></div>';
+    qText = document.getElementById("qText"); qOpts = document.getElementById("qOpts");
+    qStep = document.getElementById("qStep"); qBar = document.getElementById("qBar");
+    show();
+  }
+  show();
+})();
+</script>
+</body>
+</html>

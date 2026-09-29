@@ -1,0 +1,36 @@
+name: Deploy nginx config
+
+# Manual only: changes the live server, so run it from the Actions tab on purpose.
+on:
+  workflow_dispatch:
+
+concurrency: deploy-nginx
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$SSH_PRIVATE_KEY" ]; then
+            echo "::error::Set the SSH_HOST, SSH_USER and SSH_PRIVATE_KEY repository secrets"
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload and apply config
+        run: |
+          opts=(-i ~/.ssh/id_deploy -o BatchMode=yes)
+          scp "${opts[@]}" -P "$SSH_PORT" deploy/nginx/hamkar-learntalk.conf "$SSH_USER@$SSH_HOST:/tmp/hamkar-learntalk.conf.new"
+          ssh "${opts[@]}" -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'sudo bash -s' < deploy/nginx/apply.sh
